@@ -1,0 +1,7 @@
+terraform.tfvars
+.terraform/
+ssh_keys
+.terraform
+.DS_Store
+.dccache
+errored.tfstate
