@@ -15,7 +15,7 @@ resource "aws_alb_target_group" "tg-production" {
 tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "target group"
      }
 

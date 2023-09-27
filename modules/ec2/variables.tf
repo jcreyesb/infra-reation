@@ -16,3 +16,4 @@ variable "ssl_policy"{}
 variable "http_protocol"{}
 variable "https_protocol"{}
 variable "proyecto"{}
+variable "certificate"{}

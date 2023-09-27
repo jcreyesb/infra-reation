@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
      tags    = {
         Name = "${var.proyecto}-vpc"
         Env = var.env
-        Provisioner = "terraform"
+        ManagedBy = "Terraform"
     }
 }
 
@@ -29,7 +29,7 @@ resource "aws_subnet" "public-subnet-1"{
  	     
         Name = "Public Subnet 1" 
  	    Env = var.env
-        Provisioner = "terraform"	
+        ManagedBy = "Terraform"	
         
      }
 }
@@ -46,7 +46,7 @@ resource "aws_subnet" "public-subnet-2" {
   tags      = {
     Name    = "Public Subnet 2"
     Env = var.env
-    Provisioner = "terraform"
+    ManagedBy = "Terraform"
   }
 }
 
@@ -62,7 +62,7 @@ resource "aws_subnet" "public-subnet-3" {
   tags      = {
     Name    = "Public Subnet 3"
     Env = var.env
-    Provisioner = "terraform"
+    ManagedBy = "Terraform"
   }
 }
 
@@ -76,7 +76,7 @@ resource "aws_route_table" "public-route-table"{
      
         Name = "public Route Table"
         Env = var.env
-        Provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         
      }
 
@@ -109,7 +109,7 @@ resource "aws_subnet" "private-subnet-1"{
  		
        Name = "private subnet 1 | App Tier"
        Env = var.env
-       Provisioner = "terraform"
+       ManagedBy = "Terraform"
      }
 }
 
@@ -123,7 +123,7 @@ resource "aws_subnet" "private-subnet-2"{
  		
         Name = "private subnet 2 | App Tier "
         Env = var.env
-        Provisioner = "terraform"
+        ManagedBy = "Terraform"
      }
 }
 
@@ -137,12 +137,12 @@ resource "aws_subnet" "private-subnet-3"{
  		
         Name = "private subnet 3 | Database Tier "
         Env = var.env
-        Provisioner = "terraform"
+        ManagedBy = "Terraform"
      }
 }
 
 
-############################   nat gteway #############33
+############################   nat gteway #############
 
 #allocate Elastic ip 
  
@@ -152,7 +152,7 @@ resource "aws_subnet" "private-subnet-3"{
  		
         Name = "Elastic ip 1 "
         env = "production"
-        provisioner = "terraform"
+        ManagedBy = "Terraform"
      }
 
 
@@ -166,7 +166,7 @@ tags    = {
  		
         Name = "Nat Gateway Public  1"
         env = "production"
-        provisioner = "terraform"
+        ManagedBy = "Terraform"
      }
 
  }
@@ -181,7 +181,7 @@ resource "aws_route_table" "private-route-table"{
      tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "private Route Table"
      }
 

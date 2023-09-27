@@ -11,7 +11,7 @@ resource "aws_iam_role" "ecs_service_terraform" {
      
         Name = "Service Rol"
         Env = "production"
-        Provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         
      }
 }
@@ -136,7 +136,7 @@ resource "aws_iam_role" "ecs_exec_terraform" {
     tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "exec Rol"
      }
   
@@ -233,7 +233,7 @@ resource "aws_iam_role" "ecs_task_terraform" {
     tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "Task Rol"
      }
 

@@ -37,7 +37,7 @@ resource "aws_security_group" "public-sg-prod" {
       tags = {
     Name = "Public security group"
     env = "production"
-    provisioner = "terraform"	
+    ManagedBy = "Terraform"	
   }
   
 }
@@ -92,7 +92,7 @@ resource "aws_security_group" "private-sg-prod" {
       tags = {
     Name = "Private security group"
     env = "production"
-    provisioner = "terraform"	
+    ManagedBy = "Terraform"	
   }
   
 }

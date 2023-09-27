@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "certificate" {
   tags = {
      name = var.proyecto  
      env = "production"
-     provisioner = "terraform"	
+     ManagedBy = "Terraform"	
   }
 
   lifecycle {
@@ -14,17 +14,13 @@ resource "aws_acm_certificate" "certificate" {
   }
 }
 
-# data "aws_route53_zone" "cryptobucksapp_com" {
-#   name         = "cryptobucksapp.com"
-#   private_zone = false
-# }
+
 
 
 resource "aws_route53_record" "cert_validation" {
   name    = aws_acm_certificate.certificate.domain_validation_options.*.resource_record_name[0]
   type    = aws_acm_certificate.certificate.domain_validation_options.*.resource_record_type[0]
   zone_id = "Z008447236GSFQTIL1VTA"
-  #zone_id = "${data.aws_route53_zone.cryptobucksapp_com.id}"
   records = [aws_acm_certificate.certificate.domain_validation_options.*.resource_record_value[0]]
   ttl     = 60
 }

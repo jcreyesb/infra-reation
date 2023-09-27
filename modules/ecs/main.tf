@@ -11,7 +11,7 @@ resource "aws_ecs_cluster" "proyecto" {
 tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "Production Cluster"
      }
 
@@ -48,7 +48,7 @@ network_configuration {
 tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "Production Cluster"
      }
 
@@ -76,7 +76,7 @@ runtime_platform {
 tags    = {
      
         env = "production"
-        provisioner = "terraform"		
+        ManagedBy = "Terraform"		
         Name = "Task Definition"
      }
 

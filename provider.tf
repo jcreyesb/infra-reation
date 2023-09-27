@@ -1,7 +1,7 @@
 provider "aws" {
-  version                 = "~> 4.55"
-  region                  = "us-east-1"
+  version                 = "~> 4.67"
+  region                  = "us-west-1"
   shared_credentials_file = "~/.aws/credentials"
-  profile                 = "personal"
+  profile                 = "aliant"
 }
 

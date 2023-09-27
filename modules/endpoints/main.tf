@@ -11,7 +11,7 @@ resource "aws_vpc_endpoint" "secret-manager-endpoint" {
      
         Name = "secret manager endpoint"
         Env = "production"
-        Provisioner = "terraform"		
+        ManagedBy = "Terraform"		
        
      }
 

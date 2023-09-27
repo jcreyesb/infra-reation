@@ -12,3 +12,7 @@ resource "null_resource" "push_image" {
     command = "${path.module}/ecr.sh ${aws_ecr_repository.repository.repository_url}"
   }
 }
+
+
+
+
