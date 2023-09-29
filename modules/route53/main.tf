@@ -52,8 +52,6 @@ resource "aws_route53_record" "www" {
      weighted_routing_policy {
     weight = 90
   }
-
-  set_identifier = "www"
-  records        = ["www.${var.domain_name}"]
-    
+  records        = [var.albdns_dns]
+  set_identifier   = "www"
 }

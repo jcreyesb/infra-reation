@@ -1,4 +1,4 @@
-variable domain_name {
+variable "domain_name" {
     default = "ethereumbucks.net"
     description = "Domain name"
     type = string

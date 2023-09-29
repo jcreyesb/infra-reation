@@ -113,7 +113,7 @@ target_group_arn = module.ec2.tg-production
 # //certificate
  module certs {
  source = "./modules/certs"
- domain = module.route53.domain_name
+ domain = var.domain_name
  proyecto = var.proyecto
  zone = module.route53.zone
 
