@@ -33,9 +33,9 @@ name = var.domain_name
   }
 }
 
-resource "aws_route53_record" "site_domain" {
+resource "aws_route53_record" "main" {
   zone_id = aws_route53_zone.hosted_zone.id
-  name    = var.record_name
+  name    = var.domain_name
   type    = "A"
    
     alias {
@@ -44,4 +44,16 @@ resource "aws_route53_record" "site_domain" {
         evaluate_target_health = true 
 
     }
+}
+resource "aws_route53_record" "www" {
+  zone_id = aws_route53_zone.hosted_zone.id
+  name    = var.record_name
+  type    = "CNAME"
+     weighted_routing_policy {
+    weight = 90
+  }
+
+  set_identifier = "www"
+  records        = ["www.${var.domain_name}"]
+    
 }
