@@ -57,3 +57,7 @@ resource "aws_alb_listener" "http" {
    }
  }
 
+
+# data "dns_a_record_set" "albdns" {
+#   host = aws_lb.alb.dns_name
+# }

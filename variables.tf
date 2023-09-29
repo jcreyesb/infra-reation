@@ -20,10 +20,8 @@ variable "zone1" {}
 variable "zone2" {}
 variable "zone3" {}
 variable "name" {}
-
-# variable "public-subnet-1" {}
-# variable "public-subnet-2" {}
-# variable "public-subnet-3" {}
-# # variable "private-subnet-1" {}
-# # variable "private-subnet-2" {}
-# # variable "private-subnet-3" {}
+variable "name_ecr" {}
+variable "domain" {}
+variable "service_name" {}
+variable domain_name {}
+variable record_name {}

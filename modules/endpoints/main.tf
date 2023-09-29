@@ -1,6 +1,6 @@
 resource "aws_vpc_endpoint" "secret-manager-endpoint" {
   vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.us-east-1.secretsmanager"
+  service_name      = var.service_name
   vpc_endpoint_type = "Interface"
 
  

@@ -1,5 +1,5 @@
 resource "aws_secretsmanager_secret" "secret_manager" {
-  name = var.name
+  name = "secreto2"
     tags = {
       ManagedBy = "Terraform",
   }

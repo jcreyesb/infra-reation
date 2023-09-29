@@ -85,7 +85,7 @@ container_definitions = <<TASK_DEFINITION
 [
   {
     "name": "whoami",
-    "image": "283746063619.dkr.ecr.us-east-2.amazonaws.com/whoami",
+    "image": "283746063619.dkr.ecr.us-west-2.amazonaws.com/whoami",
     "cpu": 1,
     "memory": 1024,
       "portMappings": [
@@ -105,7 +105,7 @@ container_definitions = <<TASK_DEFINITION
       
       "tags": [
               {
-                    "name": "Cryptobucksapp-task",  
+                    "name": "infra",  
                      "env": "production",
                      "provisioner": "terraform"	
                }],      

@@ -18,7 +18,13 @@ resource "aws_security_group" "public-sg-prod" {
         to_port =var.http_port
         cidr_blocks = [ var.cidr_all ]
     }
-
+    ingress {   
+        description = "App access "    
+        protocol = "tcp"
+        from_port =var.app_port
+        to_port =var.app_port
+        cidr_blocks = [ var.cidr_all ]
+    }
     ingress {   
         description = " https access"    
         protocol = "tcp"

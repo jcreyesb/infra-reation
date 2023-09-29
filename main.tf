@@ -47,7 +47,7 @@ certificate = module.certs.certificate
 //module ECR
 module ecr{
 source="./modules/ecr"
-name = var.name
+name_ecr = var.name_ecr
 } 
 
 //Secret Manager
@@ -81,13 +81,14 @@ private-subnet-1=module.vpc.private-subnet-1
 private-subnet-2=module.vpc.private-subnet-2
 private-subnet-3=module.vpc.private-subnet-3 
 security_group = module.security_groups.private_sg
-
+service_name = var.service_name
 }
 
 
 //iam rol
 module iam {
     source = "./modules/iam"
+    
 }
 
 //ecs
@@ -112,11 +113,18 @@ target_group_arn = module.ec2.tg-production
 # //certificate
  module certs {
  source = "./modules/certs"
-  proyecto=var.proyecto
+ domain =var.domain
+ proyecto = var.proyecto
+ zone = module.route53.zone
 
  }
-//keygen
-module keygen{ 
- source = "./modules/keygen"
-proyecto=var.proyecto
- }
+
+#route 53
+module route53 {
+source = "./modules/route53"
+domain_name = var.domain_name 
+record_name = var.record_name
+proyecto = var.proyecto
+alb_id= module.ec2.albid
+albdns_dns = module.ec2.albdns
+   }

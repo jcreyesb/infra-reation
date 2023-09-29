@@ -1,6 +1,3 @@
-/*
-ECS Service
-*/
 
 // AWS IAM Linked Role used for ecs service
 resource "aws_iam_role" "ecs_service_terraform" {
@@ -27,6 +24,19 @@ resource "aws_iam_role_policy_attachment" "ecs_service_secrets" {
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 
 }
+resource "aws_iam_role_policy_attachment" "route53" {
+  role       = aws_iam_role.ecs_service_terraform.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonRoute53FullAccess"
+
+}
+
+resource "aws_iam_role_policy_attachment" "route53domains" {
+  role       = aws_iam_role.ecs_service_terraform.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonRoute53DomainsFullAccess"
+
+}
+
+
 
 // AWS IAM Role Policy used for ecs service
 resource "aws_iam_role_policy" "ecs_service" {
@@ -43,6 +53,8 @@ data "aws_iam_policy_document" "ecs_service_policy" {
 
     actions = [
       "elasticloadbalancing:Describe*",
+      "route53:*",
+      "route53domains:*",
       "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
       "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
       "ec2:Describe*",
